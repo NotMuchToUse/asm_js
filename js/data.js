@@ -1,0 +1,58 @@
+export const products = [
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Cà phê Arabica Nguyên Chất",
+    desc: "Hương vị nhẹ nhàng với vị chua nhẹ, hương thơm của hoa cacao. Phù hợp cho những người yêu thích sự tinh tế.",
+    price: "85.000",
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Cà phê Robusta Đặc Biệt",
+    desc: "Vị đậm đà, hậu vị bền lâu với nồng độ caffeine cao. Thích hợp uống riêng hoặc pha cùng sữa.",
+    price: "65.000",
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Espresso - Cà phê Đắc Lực",
+    desc: "Cà phê nướng sâu với vị đậm mạnh, thích hợp làm cơ sở cho các loại pha chế. Cung cấp năng lượng tức thì.",
+    price: "75.000",
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Cà phê Latte Ý",
+    desc: "Sự kết hợp hoàn hảo giữa cà phê Arabica và sữa tươi mịn. Mềm mại, dễ uống, phù hợp cho tất cả.",
+    price: "45.000",
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Cappuccino Kinh Điển",
+    desc: "Hương vị cân bằng giữa cà phê và lớp bọt sữa mịn. Thơm lừng, mượt mà, tạo cảm giác sang trọng.",
+    price: "55.000",
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Macchiato Đặc Sắc",
+    desc: "Cà phê mạnh mẽ với chỉ một chút sữa tạo vệt. Vị cà phê rõ nét, hậu vị bền lâu, đậm đà.",
+    price: "60.000",
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Cold Brew Thanh Mát",
+    desc: "Cà phê ủ lạnh trong nhiều giờ, vị dịu nhẹ, ít đắng, cực kỳ sảng khoái cho ngày nóng.",
+    price: "50.000",
+  },
+  {
+    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s",
+    alt: "img-product",
+    title: "Mocha Socola",
+    desc: "Sự kết hợp giữa espresso, sữa và socola tạo nên vị ngọt béo hấp dẫn, rất dễ uống.",
+    price: "70.000",
+  },
+];
