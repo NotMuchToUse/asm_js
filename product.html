@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sản phẩm</title>
+    <link
+      rel="shortcut icon"
+      href="./asset/logo-main.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="./home.html">
+          <img
+            src="./asset/logo-main.png"
+            alt="logo"
+            width="40px"
+            height="40px"
+          />
+          BICHO
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./home.html"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./product.html">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.html">Liên hệ</a>
+            </li>
+          </ul>
+          <div class="ms-auto">
+            <button class="nav-item btn btn-secondary">
+              <a class="nav-link" href="./signup.html">Đăng ký</a>
+            </button>
+            <button class="nav-item btn btn-primary">
+              <a class="nav-link" href="./login.html">Đăng nhập</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main>
+      <!-- Product section -->
+      <section>
+        <div class="container">
+          <div
+            class="d-flex justify-content-between align-items-center mt-2 mb-2"
+          >
+            <!-- Search -->
+            <div class="d-flex flex-column justify-content-center">
+              <label class="form-label">Tìm kiếm</label>
+              <div class="input-group mb-3">
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  id="button-addon1"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Tìm kiếm..."
+                  aria-label="Example text with button addon"
+                  aria-describedby="button-addon1"
+                />
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex flex-column">
+                <label class="form-label">Sắp xếp theo: </label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Tất cả</option>
+                  <option value="1">Giá từ thấp đến cao</option>
+                  <option value="2">Giá từ cao đến thấp</option>
+                </select>
+              </div>
+
+              <div class="d-flex flex-column">
+                <label class="form-label">Lọc: </label>
+                <button class="btn btn-primary">
+                  <i class="fa-solid fa-filter"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border border-primary border-3 opacity-75" />
+
+          <div class="d-flex justify-content-center flex-wrap gap-3">
+            <div class="card col-2" style="width: 18rem">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Cà phê Arabica Nguyên Chất</h5>
+                <p class="card-text">
+                  Hương vị nhẹ nhàng với vị chua nhẹ, hương thơm của hoa cacao.
+                  Phù hợp cho những người yêu thích sự tinh tế.
+                </p>
+                <p class="card-text fw-bold text-danger">85.000 đ</p>
+                <a href="./productDetail.html" class="btn btn-primary"
+                  >Xem chi tiết</a
+                >
+              </div>
+            </div>
+            <div class="card col-2" style="width: 18rem">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Cà phê Robusta Đặc Biệt</h5>
+                <p class="card-text">
+                  Vị đậm đà, hậu vị bền lâu với nồng độ caffeine cao. Thích hợp
+                  uống riêng hoặc pha cùng sữa.
+                </p>
+                <p class="card-text fw-bold text-danger">65.000 đ</p>
+                <a href="./productDetail.html" class="btn btn-primary"
+                  >Xem chi tiết</a
+                >
+              </div>
+            </div>
+            <div class="card col-2" style="width: 18rem">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Espresso - Cà phê Đắc Lực</h5>
+                <p class="card-text">
+                  Cà phê nướng sâu với vị đậm mạnh, thích hợp làm cơ sở cho các
+                  loại pha chế. Cung cấp năng lượng tức thì.
+                </p>
+                <p class="card-text fw-bold text-danger">75.000 đ</p>
+                <a href="./productDetail.html" class="btn btn-primary"
+                  >Xem chi tiết</a
+                >
+              </div>
+            </div>
+            <div class="card col-2" style="width: 18rem">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Cà phê Latte Ý</h5>
+                <p class="card-text">
+                  Sự kết hợp hoàn hảo giữa cà phê Arabica và sữa tươi mịn. Mềm
+                  mại, dễ uống, phù hợp cho tất cả.
+                </p>
+                <p class="card-text fw-bold text-danger">45.000 đ</p>
+                <a href="./productDetail.html" class="btn btn-primary"
+                  >Xem chi tiết</a
+                >
+              </div>
+            </div>
+            <div class="card col-2" style="width: 18rem">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Cappuccino Kinh Điển</h5>
+                <p class="card-text">
+                  Hương vị cân bằng giữa cà phê và lớp bọt sữa mịn. Thơm lừng,
+                  mượt mà, tạo cảm giác sang trọng.
+                </p>
+                <p class="card-text fw-bold text-danger">55.000 đ</p>
+                <a href="./productDetail.html" class="btn btn-primary"
+                  >Xem chi tiết</a
+                >
+              </div>
+            </div>
+            <div class="card col-2" style="width: 18rem">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6N9CNXNfmqC-xZbj9bD9YHeCC-CdfWyFsg&s"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Macchiato Đặc Sắc</h5>
+                <p class="card-text">
+                  Cà phê mạnh mẽ với chỉ một chút sữa tạo vệt. Vị cà phê rõ nét,
+                  hậu vị bền lâu, đậm đà.
+                </p>
+                <p class="card-text fw-bold text-danger">60.000 đ</p>
+                <a href="./productDetail.html" class="btn btn-primary"
+                  >Xem chi tiết</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pagination -->
+      <nav
+        aria-label="Page navigation example"
+        class="d-flex justify-content-center mt-4"
+      >
+        <ul class="pagination">
+          <li class="page-item"><a href="#" class="page-link">Trước</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-current="page">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+        </ul>
+      </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-2">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-6 col-lg-6 mb-3">
+            <div class="d-flex align-items-center gap-1">
+              <img
+                src="./asset/logo-main.png"
+                alt="logo"
+                width="40px"
+                height="40px"
+              />
+              <h6 class="text-uppercase fw-bold">BICHO</h6>
+            </div>
+            <p>Cà phê chất lượng, đậm đà hương vị Việt Nam</p>
+          </div>
+
+          <div class="col-md-6 col-lg-6 mb-3">
+            <h6 class="text-uppercase fw-bold">Liên hệ</h6>
+            <p><i class="fas fa-phone me-2"></i> 0123 456 789</p>
+            <p><i class="fas fa-envelope me-2"></i> hello@capheom.com</p>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-top pt-3 text-center">
+          © 2026. Tất cả quyền thuộc về PC11152.
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
