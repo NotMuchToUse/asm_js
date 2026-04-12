@@ -56,3 +56,18 @@ export const products = [
     price: "70.000",
   },
 ];
+
+export const navbarMenu = [
+  {
+    name: "Trang chủ",
+    link: "/home.html",
+  },
+  {
+    name: "Sản phẩm",
+    link: "/product.html",
+  },
+  {
+    name: "Liên hệ",
+    link: "/contact.html",
+  },
+];

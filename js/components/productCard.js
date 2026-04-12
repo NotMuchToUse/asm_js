@@ -1,4 +1,4 @@
-export const productCard = (product) => {
+export const ProductCard = (product) => {
   return /*html*/ `
             <div class="card col-2" style="width: 18rem">
               <img
