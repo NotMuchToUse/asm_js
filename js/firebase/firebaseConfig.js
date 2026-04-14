@@ -6,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+
 import {
   getFirestore,
   collection,

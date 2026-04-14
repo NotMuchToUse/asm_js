@@ -4,7 +4,7 @@ import {
   db,
   doc,
   setDoc,
-} from "../firebase/firebaseConfig";
+} from "../firebase/firebaseConfig.js";
 
 export const register = async (email, password, href) => {
   try {
