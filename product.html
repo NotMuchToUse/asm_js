@@ -53,7 +53,7 @@
                 />
               </div>
             </div>
-
+            <!-- Sort -->
             <div class="d-flex align-items-center gap-3">
               <div class="d-flex flex-column">
                 <label class="form-label">Sắp xếp theo: </label>
@@ -64,6 +64,7 @@
                 </select>
               </div>
 
+              <!-- Lọc -->
               <div class="d-flex flex-column">
                 <label class="form-label">Lọc: </label>
                 <button class="btn btn-primary">
@@ -83,22 +84,12 @@
         </div>
       </section>
 
-      <!-- Pagination -->
-      <nav
-        aria-label="Page navigation example"
-        class="d-flex justify-content-center mt-4"
-      >
-        <ul class="pagination">
-          <li class="page-item"><a href="#" class="page-link">Trước</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-current="page">2</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Sau</a></li>
-        </ul>
-      </nav>
-    </main>
+      <!-- Load More -->
+      <div class="d-flex justify-content-center mt-4">
+        <button id="loadMoreBtn" class="btn btn-outline-primary px-5">
+          Xem thêm sản phẩm
+        </button>
+      </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-2">

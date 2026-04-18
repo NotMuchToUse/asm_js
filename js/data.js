@@ -1,4 +1,10 @@
-import { addDoc, collection, db, setDoc } from "./firebase/firebaseConfig.js";
+import {
+  addDoc,
+  collection,
+  db,
+  getDocs,
+  setDoc,
+} from "./firebase/firebaseConfig.js";
 
 export const products = [
   {
@@ -178,6 +184,20 @@ export const products = [
     price: "150.000",
   },
 ];
+
+export const getProducts = async () => {
+  try {
+    const snapshot = await getDocs(collection(db, "products"));
+    const products = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return products;
+  } catch (error) {
+    console.error("Lỗi khi lấy sản phẩm:", error);
+    return [];
+  }
+};
 
 export const seedProducts = async () => {
   console.log("Bắt đầu thêm products...");
