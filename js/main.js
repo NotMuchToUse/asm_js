@@ -1,6 +1,6 @@
 import { AuthBtn, Navbar, ProfileUser } from "./components/navbarMenu.js";
 import { ProductCard } from "./components/productCard.js";
-import { products } from "./data.js";
+import { products, seedProducts } from "./data.js";
 import {
   auth,
   db,
@@ -39,3 +39,4 @@ pro ? (pro.innerHTML = products.map(ProductCard).join("")) : "";
 
 registerUser();
 loginUser();
+seedProducts();
