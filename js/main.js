@@ -11,16 +11,11 @@ import {
 import { loginUser, registerUser } from "./services/auth.js";
 import { logout } from "./auth/logout.js";
 import { addToCart, updateCartBadge } from "./services/cart.js";
+import { parsePrice } from "./utils/parsePrice.js";
 
-// ===========================
-// NAVBAR
-// ===========================
 const navbar = document.getElementById("navbar");
 navbar ? (navbar.innerHTML = Navbar()) : "";
 
-// ===========================
-// AUTH
-// ===========================
 const authArea = document.getElementById("authArea");
 if (authArea) {
   onAuthStateChanged(auth, async (user) => {
@@ -39,9 +34,6 @@ if (authArea) {
   });
 }
 
-// ===========================
-// PRODUCT PAGE
-// ===========================
 const pro = document.getElementById("pro");
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 const loadMoreArea = document.getElementById("loadMoreArea");
@@ -56,12 +48,9 @@ if (pro) {
   let originalProducts = [];
   let filteredProducts = [];
 
-  // ✅ Convert "85.000" → 85000
-  const parsePrice = (price) => Number(price.replace(/\./g, ""));
-
-  // ✅ Hiển thị loading
+  // Hiển thị loading
   const showLoading = () => {
-    pro.innerHTML = `
+    pro.innerHTML = /*html*/ `
       <div class="text-center w-100 py-5">
         <div class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Đang tải...</span>
@@ -71,7 +60,7 @@ if (pro) {
     `;
   };
 
-  // ✅ Render sản phẩm
+  // Render sản phẩm
   const renderProducts = () => {
     const source = filteredProducts;
     const nextItems = source.slice(currentIndex, currentIndex + ITEMS_PER_PAGE);
@@ -83,7 +72,7 @@ if (pro) {
 
     // Không có sản phẩm
     if (source.length === 0) {
-      pro.innerHTML = `
+      pro.innerHTML = /*html*/ `
         <div class="text-center w-100 py-5">
           <i class="fa-solid fa-box-open fa-3x text-muted mb-3"></i>
           <p class="text-muted fs-5">Không tìm thấy sản phẩm nào!</p>
@@ -121,11 +110,11 @@ if (pro) {
       if (endMsg) endMsg.remove();
     }
 
-    // ✅ Gắn event listener cho nút "Thêm vào giỏ"
+    // Gắn event listener cho nút "Thêm vào giỏ"
     attachCartEventListeners();
   };
 
-  // ✅ Gắn event listener cho nút "Thêm vào giỏ"
+  // Gắn event listener cho nút "Thêm vào giỏ"
   const attachCartEventListeners = () => {
     document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -148,17 +137,17 @@ if (pro) {
     });
   };
 
-  // ✅ Xử lý Search + Sort + Filter
+  // Xử lý Search + Sort + Filter
   const processProducts = () => {
     let result = [...originalProducts];
 
-    // 🔎 Search
+    // Search
     const keyword = searchInput?.value.trim().toLowerCase();
     if (keyword) {
       result = result.filter((p) => p.title.toLowerCase().includes(keyword));
     }
 
-    // 🎯 Filter giá
+    // Filter giá
     const priceValue = document.querySelector(
       "input[name='price']:checked",
     )?.value;
@@ -174,7 +163,7 @@ if (pro) {
       result = result.filter((p) => parsePrice(p.price) > 80000);
     }
 
-    // ⬆⬇ Sort
+    // Sort
     if (sortSelect?.value === "asc") {
       result.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
     } else if (sortSelect?.value === "desc") {
@@ -186,11 +175,11 @@ if (pro) {
     renderProducts();
   };
 
-  // ✅ Load data từ Firestore lần đầu
+  // Load data từ Firestore lần đầu
   showLoading();
   getProducts().then((data) => {
     if (data.length === 0) {
-      pro.innerHTML = `
+      pro.innerHTML = /*html*/ `
         <div class="text-center w-100 py-5">
           <i class="fa-solid fa-box-open fa-3x text-muted mb-3"></i>
           <p class="text-muted fs-5">Không có sản phẩm nào!</p>
@@ -205,10 +194,10 @@ if (pro) {
     renderProducts();
   });
 
-  // ✅ Load More
+  // Load More
   loadMoreBtn?.addEventListener("click", () => {
     loadMoreBtn.disabled = true;
-    loadMoreBtn.innerHTML = `
+    loadMoreBtn.innerHTML = /*html*/ `
       <span class="spinner-border spinner-border-sm me-2" role="status"></span>
       Đang tải...
     `;
@@ -219,16 +208,16 @@ if (pro) {
     }, 500);
   });
 
-  // ✅ Search realtime
+  // Search realtime
   searchInput?.addEventListener("input", processProducts);
 
-  // ✅ Sort
+  // Sort
   sortSelect?.addEventListener("change", processProducts);
 
-  // ✅ Áp dụng Filter
+  // Áp dụng Filter
   applyFilter?.addEventListener("click", processProducts);
 
-  // ✅ Reset Filter
+  // Reset Filter
   resetFilter?.addEventListener("click", () => {
     const priceAll = document.getElementById("priceAll");
     if (priceAll) priceAll.checked = true;
@@ -238,14 +227,6 @@ if (pro) {
   });
 }
 
-// ===========================
-// AUTH SERVICES
-// ===========================
 registerUser();
 loginUser();
-
-// ✅ Cập nhật cart badge khi page load
 updateCartBadge();
-
-// ⚠️ Chỉ chạy 1 lần để seed data, sau đó comment lại!
-// seedProducts();

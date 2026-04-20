@@ -5,19 +5,14 @@ import {
   updateCartQuantity,
   clearCart,
   calculateTotal,
-  formatPrice,
   getCartCount,
 } from "./services/cart.js";
+import { formatPrice } from "./utils/formatPrice.js";
+import { parsePrice } from "./utils/parsePrice.js";
 
-// ===========================
-// NAVBAR
-// ===========================
 const navbar = document.getElementById("navbar");
 navbar ? (navbar.innerHTML = Navbar()) : "";
 
-// ===========================
-// CART PAGE
-// ===========================
 const cartItemsContainer = document.getElementById("cartItems");
 const emptyMessage = document.getElementById("emptyMessage");
 const totalItemsEl = document.getElementById("totalItems");
@@ -26,18 +21,12 @@ const totalPriceEl = document.getElementById("totalPrice");
 const clearCartBtn = document.getElementById("clearCartBtn");
 const checkoutBtn = document.getElementById("checkoutBtn");
 
-// ✅ Parse giá tiền
-const parsePrice = (price) => {
-  if (typeof price === "number") return price;
-  return Number(price.replace(/\./g, ""));
-};
-
-// ✅ Render giỏ hàng
+// Render giỏ hàng
 const renderCart = () => {
   const cart = getCart();
 
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = `
+    cartItemsContainer.innerHTML = /*html*/ `
       <div class="cart-empty">
         <i class="fa-solid fa-bag-shopping fa-4x text-muted mb-3"></i>
         <p class="text-muted fs-5">Giỏ hàng của bạn đang trống</p>
@@ -61,7 +50,7 @@ const renderCart = () => {
 
   cart.forEach((item) => {
     const itemTotal = parsePrice(item.price) * item.quantity;
-    cartHTML += `
+    cartHTML += /*html*/ `
       <div class="list-group-item cart-item border-0 border-bottom py-3">
         <div class="row align-items-center">
           <!-- Product Image -->
@@ -129,14 +118,14 @@ const renderCart = () => {
   cartHTML += "</div>";
   cartItemsContainer.innerHTML = cartHTML;
 
-  // ✅ Cập nhật tóm tắt
+  // Cập nhật tóm tắt
   updateSummary();
 
-  // ✅ Event listeners
+  // Event listeners
   attachEventListeners();
 };
 
-// ✅ Cập nhật tóm tắt
+// Cập nhật tóm tắt
 const updateSummary = () => {
   const cart = getCart();
   const totalItems = cart.length;
@@ -148,7 +137,7 @@ const updateSummary = () => {
   totalPriceEl.textContent = formatPrice(total) + " đ";
 };
 
-// ✅ Gắn event listeners
+// Gắn event listeners
 const attachEventListeners = () => {
   // Xóa sản phẩm
   document.querySelectorAll(".remove-btn").forEach((btn) => {
@@ -202,7 +191,7 @@ const attachEventListeners = () => {
   });
 };
 
-// ✅ Xóa toàn bộ giỏ
+// Xóa toàn bộ giỏ
 clearCartBtn.addEventListener("click", () => {
   if (confirm("Bạn chắc chắn muốn xóa toàn bộ giỏ hàng?")) {
     clearCart();
@@ -210,7 +199,7 @@ clearCartBtn.addEventListener("click", () => {
   }
 });
 
-// ✅ Thanh toán
+// Thanh toán
 checkoutBtn.addEventListener("click", () => {
   const total = calculateTotal();
   const cart = getCart();
@@ -232,5 +221,5 @@ checkoutBtn.addEventListener("click", () => {
   renderCart();
 });
 
-// ✅ Khởi tạo khi load trang
+// Khởi tạo khi load trang
 renderCart();

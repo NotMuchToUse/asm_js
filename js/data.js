@@ -200,10 +200,10 @@ export const getProducts = async () => {
 };
 
 export const seedProducts = async () => {
-  console.log("Bắt đầu thêm products...");
+  // console.log("Bắt đầu thêm products...");
   try {
     for (const p of products) {
-      const docRef = await addDoc(collection(db, "products"), {
+      const newPro = await addDoc(collection(db, "products"), {
         src: p.src,
         alt: p.alt,
         title: p.title,
@@ -211,9 +211,9 @@ export const seedProducts = async () => {
         price: p.price,
         createdAt: new Date(),
       });
-      console.log("Đã thêm:", p.title, "- ID:", docRef.id);
+      console.log("Đã thêm:", p.title, "- ID:", newPro.id);
     }
-    console.log("🎉 Hoàn thành!");
+    // console.log("Hoàn thành!");
   } catch (error) {
     console.error("Lỗi:", error);
   }

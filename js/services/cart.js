@@ -1,24 +1,23 @@
-// ===========================
-// CART SERVICE
-// ===========================
+import { parsePrice } from "../utils/parsePrice.js";
 
-const CART_KEY = "khangnq_cart";
+const CART_KEY = "khangnq_pc11152_cart";
 
-// ✅ Lấy giỏ hàng từ localStorage
+// Lấy
 export const getCart = () => {
   const cart = localStorage.getItem(CART_KEY);
   return cart ? JSON.parse(cart) : [];
 };
 
-// ✅ Lưu giỏ hàng vào localStorage
-const saveCart = (cart) => {
+// Lưu
+export const saveCart = (cart) => {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 };
 
-// ✅ Thêm sản phẩm vào giỏ
+// Thêm
 export const addToCart = (product, quantity = 1) => {
   const cart = getCart();
   const existingItem = cart.find((item) => item.id === product.id);
+  console.log(existingItem);
 
   if (existingItem) {
     existingItem.quantity += quantity;
@@ -36,7 +35,7 @@ export const addToCart = (product, quantity = 1) => {
   return cart;
 };
 
-// ✅ Xóa sản phẩm khỏi giỏ
+// Xóa 1
 export const removeFromCart = (productId) => {
   const cart = getCart();
   const updatedCart = cart.filter((item) => item.id !== productId);
@@ -44,7 +43,7 @@ export const removeFromCart = (productId) => {
   return updatedCart;
 };
 
-// ✅ Cập nhật số lượng sản phẩm
+// Cập nhật
 export const updateCartQuantity = (productId, quantity) => {
   const cart = getCart();
   const item = cart.find((item) => item.id === productId);
@@ -60,19 +59,13 @@ export const updateCartQuantity = (productId, quantity) => {
   return cart;
 };
 
-// ✅ Xóa toàn bộ giỏ hàng
+// Xóa hết
 export const clearCart = () => {
   localStorage.removeItem(CART_KEY);
   return [];
 };
 
-// ✅ Tính tổng tiền (chuyển price string thành number)
-const parsePrice = (price) => {
-  if (typeof price === "number") return price;
-  return Number(price.replace(/\./g, ""));
-};
-
-// ✅ Tính tổng giá trị giỏ hàng
+// Tính tổng giá trị giỏ hàng
 export const calculateTotal = () => {
   const cart = getCart();
   return cart.reduce(
@@ -81,19 +74,13 @@ export const calculateTotal = () => {
   );
 };
 
-// ✅ Format giá tiền (85000 → 85.000)
-export const formatPrice = (price) => {
-  const num = parsePrice(price);
-  return num.toLocaleString("vi-VN");
-};
-
-// ✅ Đếm tổng số sản phẩm trong giỏ
+// Đếm tổng số sản phẩm trong giỏ
 export const getCartCount = () => {
   const cart = getCart();
   return cart.reduce((count, item) => count + item.quantity, 0);
 };
 
-// ✅ Cập nhật số lượng hiển thị ở navbar
+// Cập nhật số lượng hiển thị ở navbar
 export const updateCartBadge = () => {
   const badgeElement = document.getElementById("cartBadge");
   if (badgeElement) {
