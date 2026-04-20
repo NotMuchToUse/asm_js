@@ -229,6 +229,10 @@ export const navbarMenu = [
     link: "/product.html",
   },
   {
+    name: "Giỏ hàng",
+    link: "/cart.html",
+  },
+  {
     name: "Liên hệ",
     link: "/contact.html",
   },

@@ -29,67 +29,148 @@
     <main>
       <!-- Product section -->
       <section>
-        <div class="container">
-          <div
-            class="d-flex justify-content-between align-items-center mt-2 mb-2"
-          >
-            <!-- Search -->
-            <div class="d-flex flex-column justify-content-center">
-              <label class="form-label">Tìm kiếm</label>
-              <div class="input-group mb-3">
-                <button
-                  class="btn btn-primary"
-                  type="button"
-                  id="button-addon1"
-                >
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Tìm kiếm..."
-                  aria-label="Example text with button addon"
-                  aria-describedby="button-addon1"
-                />
-              </div>
-            </div>
-            <!-- Sort -->
-            <div class="d-flex align-items-center gap-3">
-              <div class="d-flex flex-column">
-                <label class="form-label">Sắp xếp theo: </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Tất cả</option>
-                  <option value="1">Giá từ thấp đến cao</option>
-                  <option value="2">Giá từ cao đến thấp</option>
-                </select>
-              </div>
-
-              <!-- Lọc -->
-              <div class="d-flex flex-column">
-                <label class="form-label">Lọc: </label>
-                <button class="btn btn-primary">
-                  <i class="fa-solid fa-filter"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <hr class="border border-primary border-3 opacity-75" />
-
-          <!-- Product -->
-          <div
-            class="d-flex justify-content-center flex-wrap gap-3"
-            id="pro"
-          ></div>
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
+      
+      <!-- Search -->
+      <div class="d-flex flex-column justify-content-center">
+        <label class="form-label">Tìm kiếm</label>
+        <div class="input-group mb-3">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <input
+            id="searchInput"
+            type="text"
+            class="form-control"
+            placeholder="Tìm kiếm sản phẩm..."
+          />
         </div>
-      </section>
-
-      <!-- Load More -->
-      <div class="d-flex justify-content-center mt-4">
-        <button id="loadMoreBtn" class="btn btn-outline-primary px-5">
-          Xem thêm sản phẩm
-        </button>
       </div>
+
+      <!-- Sort + Filter -->
+      <div class="d-flex align-items-center gap-3">
+        
+        <!-- Sort -->
+        <div class="d-flex flex-column">
+          <label class="form-label">Sắp xếp theo: </label>
+          <select id="sortSelect" class="form-select">
+            <option value="all" selected>Tất cả</option>
+            <option value="asc">Giá từ thấp đến cao</option>
+            <option value="desc">Giá từ cao đến thấp</option>
+          </select>
+        </div>
+
+        <!-- Filter Button -->
+        <div class="d-flex flex-column">
+          <label class="form-label">Lọc: </label>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#filterCanvas"
+          >
+            <i class="fa-solid fa-filter"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="border border-primary border-3 opacity-75" />
+
+    <!-- Product -->
+    <div class="d-flex justify-content-center flex-wrap gap-3" id="pro"></div>
+
+    <!-- Load More -->
+    <div class="d-flex flex-column align-items-center mt-4" id="loadMoreArea">
+      <button id="loadMoreBtn" class="btn btn-outline-primary px-5">
+        Xem thêm sản phẩm
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ✅ Filter Offcanvas Sheet -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filterCanvas">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title fw-bold">
+      <i class="fa-solid fa-filter me-2 text-primary"></i>Lọc sản phẩm
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+
+    <!-- Lọc theo giá -->
+    <p class="fw-semibold mb-2">Khoảng giá</p>
+
+    <div class="form-check mb-2">
+      <input
+        class="form-check-input price-filter"
+        type="radio"
+        name="price"
+        value="all"
+        id="priceAll"
+        checked
+      />
+      <label class="form-check-label" for="priceAll">Tất cả</label>
+    </div>
+
+    <div class="form-check mb-2">
+      <input
+        class="form-check-input price-filter"
+        type="radio"
+        name="price"
+        value="low"
+        id="priceLow"
+      />
+      <label class="form-check-label" for="priceLow">
+        <span class="badge bg-success">Dưới 50.000đ</span>
+      </label>
+    </div>
+
+    <div class="form-check mb-2">
+      <input
+        class="form-check-input price-filter"
+        type="radio"
+        name="price"
+        value="mid"
+        id="priceMid"
+      />
+      <label class="form-check-label" for="priceMid">
+        <span class="badge bg-warning text-dark">50.000đ - 80.000đ</span>
+      </label>
+    </div>
+
+    <div class="form-check mb-2">
+      <input
+        class="form-check-input price-filter"
+        type="radio"
+        name="price"
+        value="high"
+        id="priceHigh"
+      />
+      <label class="form-check-label" for="priceHigh">
+        <span class="badge bg-danger">Trên 80.000đ</span>
+      </label>
+    </div>
+
+    <hr />
+
+    <!-- Nút -->
+    <button id="applyFilter" class="btn btn-primary w-100 mt-2" data-bs-dismiss="offcanvas">
+      <i class="fa-solid fa-check me-2"></i>Áp dụng
+    </button>
+
+    <button id="resetFilter" class="btn btn-outline-secondary w-100 mt-2">
+      <i class="fa-solid fa-rotate-left me-2"></i>Đặt lại
+    </button>
+
+  </div>
+</div>
+
+
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-2">

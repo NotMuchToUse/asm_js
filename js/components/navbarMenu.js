@@ -62,7 +62,7 @@ export const Navbar = () => {
         <ul class="navbar-nav">
           ${navbarMenu.map((nav) => NavMenu(nav, curr)).join("")}
         </ul>
-        <div class="ms-auto" id="authArea"></div>
+        <div class="ms-auto d-flex align-items-center gap-3" id="authArea"></div>
       </div>
     </div>
   `;

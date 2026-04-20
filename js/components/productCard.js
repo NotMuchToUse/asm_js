@@ -13,9 +13,14 @@ export const ProductCard = (product) => {
                   ${product.desc}
                 </p>
                 <p class="card-text fw-bold text-danger fs-5">${product.price} đ</p>
-                <a href="./productDetail.html" class="btn btn-primary mt-auto"
-                  >Xem chi tiết</a
-                >
+                <div class="d-flex gap-2 mt-auto">
+                  <button class="btn btn-success flex-grow-1 add-to-cart-btn" data-product-id="${product.id}" data-product='${JSON.stringify(product)}'>
+                    <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                  </button>
+                  <a href="./productDetail.html" class="btn btn-primary flex-grow-1"
+                    >Chi tiết</a
+                  >
+                </div>
               </div>
             </div>
         `;
